@@ -1,5 +1,7 @@
 body {
 	position: relative;
+	margin: 0;
+	padding: 0;
 }
 
 ul {
@@ -25,40 +27,32 @@ $circle-nav-panel-height: 500px;
 
 $circle-nav-item-bg: #fff;
 
+$cubic-bezier: cubic-bezier(0, 1.16, 1, 1);
+
 .circle-nav-wrapper {
 	position: absolute;
 	z-index: 9999999;
-	width: $circle-nav-toggle-weight; 
-	height: $circle-nav-toggle-height;
 	right: 0px;
 	top: 0px;
+	width: $circle-nav-panel-width/2;
+	height: $circle-nav-panel-height/2;
+	overflow: hidden;
 	
-	// Place toggler on the right 
-	// &.circle-nav-right {
-	//     right: 0px;
-	//     top: 0px;
-	// }
-	
-	// // Place toggler on the left
-	// &.circle-nav-left {
-	//     left: 0px;
-	//     top: 0px;
-		
-	// }
 	// Toggle button
 	.circle-nav-toggle {
+		position: absolute;
 		user-select: none;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 50%;
-		position: relative;
 		z-index: 999999;
 		width: $circle-nav-toggle-weight; 
 		height: $circle-nav-toggle-height;
 		border: 2px solid $circle-nav-toggle-color;
-		transition: transform .2s ease-in;
-
+		transition: transform .2s cubic-bezier(0, 1.16, 1, 1);
+		right: 10px;
+		top: 10px;
 		i.material-icons {
 			color: $circle-nav-toggle-color;
 		}
@@ -87,10 +81,11 @@ $circle-nav-item-bg: #fff;
 		width: 0;
 		height: 0;
 		border-radius: 50%;
-		transform: translate(-50%, -55%);
-		transition: width .2s ease-in, 
-					height .2s ease-in;
-		
+		transform: translate(-50%, -52.5%);
+		transition: width .2s $cubic-bezier, 
+					height .2s $cubic-bezier;
+		margin-left: 261px;
+
 		// Navigation open
 		&.circle-nav-open {
 			width: $circle-nav-panel-width;
@@ -98,43 +93,12 @@ $circle-nav-item-bg: #fff;
 			opacity: .7;
 			box-shadow: -5px 6px 0 6px rgba(255,95,109,0.33);
 
-			.circle-nav-item {
-				width: 50px;
-			    height: 50px;
-   				visibility: visible;
-
-   				&.circle-nav-item-1 {
-   					top: auto;
-   					bottom: 210px;
-    				left: 30px;
-   				}
-
-   				&.circle-nav-item-2 {
-   					top: auto;
-   					bottom: 145px;
-    				left: 45px;
-   				}
-
-   				&.circle-nav-item-3 {
-   					top: auto;
-   					bottom: 90px;
-    				left: 80px;
-   				}
-
-   				&.circle-nav-item-4 {
-   					top: auto;
-   					bottom: 49px;
-    				left: 130px;
-   				}
-
-   				&.circle-nav-item-5 {
-   					top: auto;
-   					bottom: 25px;
-    				left: 192px;
-   				}
-			}
 		}
+	}
 
+	.circle-nav-menu {
+		width: $circle-nav-panel-width/2;
+		height: $circle-nav-panel-height/2;
 
 		.circle-nav-item {
 			position: absolute;
@@ -144,20 +108,23 @@ $circle-nav-item-bg: #fff;
 		    align-items: center;
 			background-color: $circle-nav-item-bg;
 		    border-radius: 50%;
-			width: 0;
-		    height: 0;
-		    transition: all .3s ease-in;
+			width: 15px;
+		    height: 15px;
    			visibility: hidden;
+		    transition: bottom .5s $cubic-bezier,
+		    			left .5s $cubic-bezier,
+			    		width .3s $cubic-bezier,
+			    		height .3s $cubic-bezier;
 
    			&-1, &-2, &-3, &-4, &-5 {
-	   			top: -500px;
-	   			right: 500px;
+	   			left: 250px;
+	   			bottom: 250px;
    			}
-			
 
 			i {
 				color: $circle-nav-panel-gradient-top;
-				font-size: 1.7em;
+				font-size: .6em;
+				transition: font .3s $cubic-bezier;
 			}
 
 			// Show icon?
@@ -184,66 +151,60 @@ $circle-nav-item-bg: #fff;
 		   }
     		
 		}
+
+		&.circle-nav-open {
+			.circle-nav-item {
+				width: 40px;
+			    height: 40px;
+   				visibility: visible;
+				transition: bottom .3s $cubic-bezier,
+			    			left .3s $cubic-bezier,
+			    			width .2s $cubic-bezier,
+			    			height .2s $cubic-bezier;
+					
+				&:hover {
+					cursor: pointer;
+					opacity: .8;
+				}
+
+				i {
+					font-size: 1.4em;
+					transition: font .1s $cubic-bezier;
+				}
+
+   				&.circle-nav-item-1 {
+   					bottom: 200px;
+    				left: 30px;
+					transition-delay: .2s;
+   				}
+
+   				&.circle-nav-item-2 {
+   					bottom: 140px;
+    				left: 50px;
+					transition-delay: .4s;
+   				}
+
+   				&.circle-nav-item-3 {
+   					bottom: 90px;
+    				left: 85px;
+					transition-delay: .6s;
+   				}
+
+   				&.circle-nav-item-4 {
+   					bottom: 52px;
+    				left: 132px;
+					transition-delay: .8s;
+   				}
+
+   				&.circle-nav-item-5 {
+   					bottom: 28px;
+    				left: 187px;
+					transition-delay: 1s;
+   				}
+			}
+		}
+
+
+		
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// .dot {
-//   height: 20px; width: 20px;
-//   border-radius: 50%;
-//   animation: horizontal-move 2.5s infinite alternate ease-in-out;
-//   border: 1px solid tomato;
-// }
-
-// .dot::after {
-//   content: '';
-//   height: 100%;
-//     width: 100%;
-//   border-radius: 50%;
-//   background-color: olive;
-//   animation: vertical-move 2.5s infinite ease-in-out;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// }
-
-// @keyframes horizontal-move {
-//   0% {
-//     animation-timing-function: ease-in-out;
-//     transform: translateX(0);
-//   }
-//   100% {
-//     animation-timing-function: ease-in-out;
-//     transform: translateX(2000%);
-//   }
-// }
-
-// @keyframes vertical-move {
-//   0% {
-//     animation-timing-function: ease-in-out;
-//     transform: translateX(0);
-//   }
-//   50% {
-//     animation-timing-function: ease-in-out;
-//     transform: translateY(-300%);
-//   }
-//   100% {
-//     animation-timing-function: ease-in-out;
-//     transform: translateY(0);
-//   }
-// }

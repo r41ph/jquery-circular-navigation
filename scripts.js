@@ -15,6 +15,7 @@
             var $container = $(this); /* Navigation container: #circle-nav-wrapper */
             var $toggle = $('.circle-nav-toggle');
             var $panel = $('.circle-nav-panel');
+            var $menu = $('.circle-nav-menu');
             // breakpointChk();
 
             // Overlay
@@ -29,7 +30,7 @@
                         "position": "fixed",
                         "background-color": settings.overlayColor,
                         "opacity": settings.overlayOpacity,
-                        "z-index": "-1  ",
+                        "z-index": "-1",
                         "display": "none"
                     });
                 }
@@ -39,6 +40,7 @@
                 $container.stop().toggleClass('circle-nav-open');
                 $toggle.stop().toggleClass('circle-nav-open');
                 $panel.stop().toggleClass('circle-nav-open');
+                $menu.stop().toggleClass('circle-nav-open');
                 $('.circle-nav-overlay').fadeToggle();
                 
                 if ( $('body').css("overflow") ) {
