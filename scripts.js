@@ -11,7 +11,7 @@
         var settings = $.extend({}, $.fn.circleNav.settings, options);
 
         // Plugin code
-        return this.each(function () {
+        return this.each( function () {
             var $container = $(this); /* Navigation container: #circle-nav-wrapper */
             var $toggle = $('.circle-nav-toggle');
             var $panel = $('.circle-nav-panel');
@@ -19,7 +19,7 @@
             // breakpointChk();
 
             // Overlay
-            if (settings.hasOverlay) {
+            if (settings.overlay) {
                 if ($('.circle-nav-overlay').length == 0) {
                     $('body').append("<div class='circle-nav-overlay'></div>");
                     $(".circle-nav-overlay").css({
@@ -35,6 +35,7 @@
                     });
                 }
             }
+
             // Toggle click event
             $('.circle-nav-toggle, .circle-nav-overlay').on('click', function () {
                 $container.stop().toggleClass('circle-nav-open');
@@ -57,20 +58,6 @@
             //     clearTimeout(resizeTimer);
             //     resizeTimer = setTimeout(function () {
             //         breakpointChk();
-            //         if (isBreakpoint) {
-            //             $('body').css("margin-top", "0px");
-            //             if ($toggle.hasClass('mainNav-open')) {
-            //                 $('.mainNavOverlay').css("display", "block");
-            //                 $('body, html').css("overflow", "hidden");
-            //             }
-            //         } else {
-            //             $('.mainNavOverlay').css("display", "none");
-            //             navPosition = $mainNav.offset().top;
-            //             stickyNavChk(navPosition);
-            //             $('body, html').css("overflow", "");
-            //         }
-
-            //         setMobileDropdown();
             //     }, 500);
             // });
 
@@ -91,7 +78,7 @@
 
     // Default settings
     $.fn.circleNav.settings = {
-        hasOverlay: true,
+        overlay: true,
         overlayColor: "#fff",
         overlayOpacity: ".7"
     };
