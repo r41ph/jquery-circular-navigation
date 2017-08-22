@@ -133,6 +133,10 @@ $circle-nav-item-bg: #fff;
 	   			&-1, &-2, &-3, &-4, &-5 {
 		   			left: $circle-nav-panel-width/2;
 		   			bottom: $circle-nav-panel-width/2;
+
+		   			a {
+		   				text-decoration: none;
+		   			}
 	   			}
 
 				i {
@@ -260,19 +264,25 @@ $circle-nav-item-bg: #fff;
 			.circle-nav-item {
 			    position: relative;
 			    visibility: visible;
-				color: #fff;
-				transition: color .2s ease-out;
-
-				&:hover {
-					cursor: pointer;
-					color: #000;
-				}
 
 			    &-1, &-2, &-3, &-4, &-5 {
 					left: auto;
 					bottom: auto;
 					display: flex;
 					align-items: center;
+
+					a {
+						color: #fff;
+						text-decoration: none;
+	    				text-transform: uppercase;
+	    				font-family: $font-family;
+						transition: color .2s ease-out;
+
+						&:hover {
+							cursor: pointer;
+							color: #000;
+						}
+					}
 
 		   			i {
 		   				font-size: 1em;
@@ -295,8 +305,6 @@ $circle-nav-item-bg: #fff;
 						span {
 							display: inline;
 		    				font-size: .8em;
-		    				text-transform: uppercase;
-		    				font-family: $font-family;
 						}
 				   } @else {
 				   		span {
