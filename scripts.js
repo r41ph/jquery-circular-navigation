@@ -1,6 +1,4 @@
-/*
- *  jQuery-mainNav - v1.0
- */
+// jQuery-circleNav - v1.0
 
 ;(function ($, window, document, undefined) {
 

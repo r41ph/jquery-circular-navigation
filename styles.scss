@@ -61,6 +61,7 @@ $circle-nav-item-bg: #fff;
 			height: $circle-nav-toggle-height;
 			border: 2px solid $circle-nav-toggle-color;
 			transition: transform .2s cubic-bezier(0, 1.16, 1, 1);
+			background-color: #fff;
 			right: 10px;
 			top: 10px;
 
@@ -77,7 +78,7 @@ $circle-nav-item-bg: #fff;
 			&.circle-nav-open {
 				border: 2px solid #fff;
 				transform: rotate(135deg);
-
+				background-color: transparent;
 				i.material-icons {
 					color: #fff;
 				}
@@ -99,7 +100,7 @@ $circle-nav-item-bg: #fff;
 			&.circle-nav-open {
 				width: $circle-nav-panel-width;
 				height: $circle-nav-panel-height;
-				opacity: .7;
+				opacity: .9;
 				box-shadow: -5px 6px 0 6px rgba(255,95,109,0.33);
 
 			}
